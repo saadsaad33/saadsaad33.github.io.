@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #FFD700;  /* Gold */
+    --secondary-color: #FF1493;  /* Deep Pink */
+    --dark-color: #000000;
+    --light-color: #FFFFFF;
+    --accent-color: #4B0082;  /* Indigo */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    color: var(--light-color);
+    line-height: 1.6;
+    background-color: var(--dark-color);
+    background-image: 
+        linear-gradient(45deg, #000 25%, transparent 25%),
+        linear-gradient(-45deg, #000 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #000 75%),
+        linear-gradient(-45deg, transparent 75%, #000 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 20, 147, 0.1) 0%, transparent 50%);
+    z-index: -1;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px var(--secondary-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: var(--light-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover {
+    color: var(--secondary-color);
+}
+
+#hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+}
+
+#hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px var(--secondary-color);
+}
+
+#hero p {
+    font-size: 1.5rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+.search-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+#search-bar {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--light-color);
+    border: 2px solid var(--primary-color);
+}
+
+#search-bar::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.song-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.song-card {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: var(--light-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.song-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(255, 20, 147, 0.5);
+}
+
+.song-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.song-card h3 {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    background-color: rgba(75, 0, 130, 0.8);
+    color: var(--primary-color);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-top: 3px solid var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 3rem;
+    }
+
+    #hero p {
+        font-size: 1.2rem;
+    }
+
+    .song-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
